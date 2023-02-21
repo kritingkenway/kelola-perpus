@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Database\Migrations;
+
+use CodeIgniter\Database\Migration;
+
+class Pinjaman extends Migration
+{
+    public function up()
+    {
+        // $this->db->disableForeignKeyChecks();
+
+        $this->forge->addField([
+            'id'          => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+                'unsigned'       => true,
+                'auto_increment' => true,
+            ],
+            'books_id'       => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true
+            ],
+            'users_id'       => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true
+            ],
+            'tanggal_pinjam'       => [
+                'type'       => 'DATE'
+            ],
+            'tanggal_kembali'       => [
+                'type'       => 'DATE'
+           
+            ],
+        ]);
+        $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('books_id', 'books', 'id');
+        $this->forge->addForeignKey('users_id', 'users', 'id');
+        $this->forge->createTable('pinjaman');
+
+        // $this->db->enableForeignKeyChecks();
+    }
+
+    public function down()
+    {
+        $this->forge->dropTable('pinjaman',false,true);
+    }
+}
