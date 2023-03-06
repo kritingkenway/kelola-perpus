@@ -41,7 +41,7 @@ phpunit
 public/img/gallery-*
 .env
 vendor/
-composer.lock
+
 
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
@@ -52,7 +52,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
-/vendor/
+vendor/
 
 ### CodeIgniter Patch ###
 
